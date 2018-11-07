@@ -49,7 +49,7 @@ function leet(str){
 
 function prop_access(key, sub){
 
-    if(){
+    if(true){
 
     }
     else{
