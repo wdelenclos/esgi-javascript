@@ -22,8 +22,8 @@ function capitalize(string){
 
 function camelCase(string){
     if(typeof(string) == "string") {
-        var st = capitalize(string);
-        return st.replace(/_/g, "").replace(/\s/g, '');
+        var st = capitalize(string).replace(/_/g, " ");
+        return st.replace(/\s/g, '');
     }
     else {
         return "";
@@ -36,6 +36,6 @@ function snake_case(string){
 }
 
 function verlan(str) {
-    return str.reverse();
+    return str.split("").reverse().join('');
 }
 
