@@ -36,13 +36,29 @@ function snake_case(string){
 }
 
 function verlan(str) {
+
     return str.split("").reverse().join('');
 }
 
-function leet(str){
-    var chrs = {'a':'4','e':'3','i':'1','y':'7','u':'(_)','o':'0'};
-    return str.split("").map( function(val) { return chrs[val.toLowerCase()] || val}).join('');
+function yoda(str){
+    var result = "";
+    var wordArray = str.split(" ");
+    for(var i = wordArray.length - 1; i >= 0; i--) {
+        result += wordArray[i] + " ";
+    }
+    return result.trim();
+}
 
+function leet(str){
+    if(typeof(string) == "string") {
+        var chrs = {'a': '4', 'e': '3', 'i': '1', 'y': '7', 'u': '(_)', 'o': '0'};
+        return str.split("").map(function (val) {
+            return chrs[val.toLowerCase()] || val
+        }).join('');
+    }
+    else {
+        return "";
+    }
 }
 
 
