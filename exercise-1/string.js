@@ -49,7 +49,9 @@ function leet(str){
 
 function prop_access(key, sub){
 
+    if(){
 
+    }
     else{
         console.log('not exist”');
     }
