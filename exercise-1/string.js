@@ -10,16 +10,24 @@ function ucfirst(string){
 }
 
 function capitalize(string){
-    return string.replace(/\w\S*/g, function(txt){
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    });
+    if(typeof(string) == "string") {
+        return string.replace(/\w\S*/g, function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        });
+    }
+    else {
+        return "";
+    }
 }
 
 function camelCase(string){
-    var st =  string.replace(/\w\S*/g, function(txt){
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    });
-    return st.replace(/\s/g,'');
+    if(typeof(string) == "string") {
+        var st = capitalize(string);
+        return st.replace(/_/g, "").replace(/\s/g, '');
+    }
+    else {
+        return "";
+    }
 }
 
 
