@@ -22,7 +22,7 @@ function capitalize(string){
 
 function camelCase(string){
     if(typeof(string) == "string") {
-        var st = capitalize(string).replace(/_/g, " ");
+        var st = capitalize(string.replace(/_/g, " "));
         return st.replace(/\s/g, '');
     }
     else {
@@ -39,3 +39,13 @@ function verlan(str) {
     return str.split("").reverse().join('');
 }
 
+function leet(str){
+    var chrs = {'a':'4','e':'3','i':'1','y':'7','u':'(_)','o':'0'};
+    return chrs[str.toLowerCase()] || str;
+}
+
+
+
+function prop_access(){
+
+}
