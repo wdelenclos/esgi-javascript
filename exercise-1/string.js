@@ -24,7 +24,7 @@ function camelCase(string){
 
 
 function snake_case(string){
-    camelCase(capitalize).toLowerCase().replace(/\s/g,'_');
+    return capitalize(string).toLowerCase().replace(/\s/g,'_');
 }
 
 function verlan(str) {
