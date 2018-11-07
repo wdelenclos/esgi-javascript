@@ -36,8 +36,12 @@ function snake_case(string){
 }
 
 function verlan(str) {
-
-    return str.split("").reverse().join('');
+    var strs = str.split(" ");
+    var res = "";
+    for (s in strs){
+        res += " "+strs[s].split("").reverse().join('');
+    }
+    return res;
 }
 
 function yoda(str){
