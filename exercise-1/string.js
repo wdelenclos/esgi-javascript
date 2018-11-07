@@ -41,11 +41,16 @@ function verlan(str) {
 
 function leet(str){
     var chrs = {'a':'4','e':'3','i':'1','y':'7','u':'(_)','o':'0'};
-    return chrs[str.toLowerCase()] || str;
+    return str.split("").map( function(val) { return chrs[val.toLowerCase()] || val}).join('');
+
 }
 
 
 
-function prop_access(){
+function prop_access(key, sub){
 
+
+    else{
+        console.log('not exist”');
+    }
 }
