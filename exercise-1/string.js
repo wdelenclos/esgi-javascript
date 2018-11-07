@@ -8,73 +8,26 @@ function ucfirst(string){
         return "";
     }
 }
+
 function capitalize(string){
-    var resultString = "";
-    if(typeof(string) == "string"){
-        for(var i = 0; i < string.length; i++){
-            if(i == 0){
-                resultString += string[i].toUpperCase();
-            }
-            else{
-                if(string[i-1] == " "){
-                    resultString += string[i].toUpperCase();
-                }
-                else{
-                    resultString += string[i];
-                }
-            }
-        }
-        return resultString;
-    }
-    else {
-        return "";
-    }
+    return string.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
 }
 
 function camelCase(string){
-    var resultString = "";
-    if(typeof(string) == "string"){
-        for(var i = 0; i < string.length; i++){
-            if(i == 0){
-                resultString += string[i].toUpperCase();
-            }
-            else{
-                if(string[i] == " "){
-                    resultString += string[i+1].toUpperCase();
-                    i++;
-                }
-                else{
-                    resultString += string[i].toLowerCase();
-                }
-            }
-        }
-        return resultString;
-    }
-    else {
-        return "";
-    }
+    var st =  string.replace(/\w\S*/g, function(txt){
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    });
+    return st.replace(/\s/g,'');
 }
 
 
 function snake_case(string){
-    var resultString = "";
-    if(typeof(string) == "string"){
-        for(var i = 0; i < string.length; i++){
-            if(i == 0){
-                resultString += string[i].toLowerCase();
-            }
-            else{
-                if(string[i] == " "){
-                    resultString += "_";
-                }
-                else{
-                    resultString += string[i].toLowerCase();
-                }
-            }
-        }
-        return resultString;
-    }
-    else {
-        return "";
-    }
+    camelCase(capitalize).toLowerCase().replace(/\s/g,'_');
 }
+
+function verlan(str) {
+    return str.reverse();
+}
+
