@@ -3,14 +3,16 @@
 // type_check_v1(1, "number");
 function type_check_v1(val, type){
     switch (type) {
-        case 'null' || 'nullNotObject':
-            return val === null;
-        case 'array' || 'arrayNotObject':
-            return Array.isArray(val);
         case 'undefined':
             return val === undefined;
+        case 'null':
+            return val === null;
+        case 'array':
+            return Array.isArray(val);
         case 'function':
-            return (typeof val === 'function');
+            return val && {}.toString.call(val) === '[object Function]';
+        case 'nullNotObject' || 'arrayNotObject':
+            return false;
         default:
             return (typeof val === type.toLowerCase());
     }
