@@ -45,3 +45,15 @@ function type_check_v2(val, obj ){
     }
     return(valValidity+typeValidity === 2 )
 }
+
+
+const type_check = (val, check) => {
+    if (typeof val === 'object') {
+        if (check.hasOwnProperty('properties')) {
+            return Object.entries(check.properties)
+                .filter(([prop, propCheck]) => type_check_v2(val[prop], propCheck))
+                .length === Object.values(check.properties).length
+                ;
+        }
+    }
+}
