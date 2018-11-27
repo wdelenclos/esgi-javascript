@@ -2,13 +2,17 @@
 // Verifier que le type de l'arg1 correspond à l'arg 2
 // type_check_v1(1, "number");
 function type_check_v1(val, type){
-    if(Array.isArray(val)){
-        if (type === "array" ){
-            return true;
-        }
-    }
-    else{
-        return (typeof val === type.toLowerCase());
+    switch (type) {
+        case 'null' || 'nullNotObject':
+            return val === null;
+        case 'array' || 'arrayNotObject':
+            return Array.isArray(val);
+        case 'undefined':
+            return val === undefined;
+        case 'function':
+            return (typeof val === 'function');
+        default:
+            return (typeof val === type.toLowerCase());
     }
 }
 
