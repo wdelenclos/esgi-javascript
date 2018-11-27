@@ -10,7 +10,12 @@ function type_check_v1(val, type){
         case 'array':
             return Array.isArray(val);
         case 'function':
-            return val && {}.toString.call(val) === '[object Function]';
+            if(val !== null && val !== undefined){
+                return val && {}.toString.call(val) === '[object Function]';
+            }
+            else{
+                return false;
+            }
         case 'nullNotObject' || 'arrayNotObject':
             return false;
         default:
@@ -36,7 +41,7 @@ function type_check_v2(val, obj ){
         valValidity = (val === obj.value);
     }
     else{
-        return "Error: Invalid value or enum entry"
+        valValidity = true;
     }
     return(valValidity+typeValidity === 2 )
 }
