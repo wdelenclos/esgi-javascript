@@ -1,32 +1,17 @@
 
-String.prototype.ucfirst = function(string){
-    if(typeof(string) == "string"){
-        return string[0].toUpperCase()+string.slice(1);
-    }
-    else {
-        return "";
-    }
+String.prototype.ucfirst = function(){
+        return this[0].toUpperCase()+this.slice(1);
 };
 
-String.prototype.capitalize = function(string){
-    if(typeof(string) == "string") {
-        return string.replace(/\w\S*/g, function (txt) {
+String.prototype.capitalize = function(){
+        return this.replace(/\w\S*/g, function (txt) {
             return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         });
-    }
-    else {
-        return "";
-    }
 };
 
-String.prototype.camelCase = function(string){
-    if(typeof(string) == "string") {
-        var st = this.capitalize(string.replace(/_/g, " "));
+String.prototype.camelCase = function(){
+        var st = this.capitalize(this.replace(/_/g, " "));
         return st.replace(/\s/g, '');
-    }
-    else {
-        return "";
-    }
 };
 
 
