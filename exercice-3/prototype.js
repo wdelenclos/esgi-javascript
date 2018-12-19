@@ -21,7 +21,7 @@ String.prototype.capitalize = function(string){
 
 String.prototype.camelCase = function(string){
     if(typeof(string) == "string") {
-        var st = capitalize(string.replace(/_/g, " "));
+        var st = this.capitalize(string.replace(/_/g, " "));
         return st.replace(/\s/g, '');
     }
     else {
@@ -31,7 +31,7 @@ String.prototype.camelCase = function(string){
 
 
 String.prototype.snake_case = function(string){
-    return capitalize(string).toLowerCase().replace(/\s/g,'_');
+    return this.capitalize(string).toLowerCase().replace(/\s/g,'_');
 };
 
 String.prototype.verlan = function(str) {
