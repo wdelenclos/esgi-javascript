@@ -46,14 +46,29 @@ function type_check_v2(val, obj ){
     return(valValidity+typeValidity === 2 )
 }
 
-
-const type_check = (val, check) => {
-    if (typeof val === 'object') {
-        if (check.hasOwnProperty('properties')) {
-            return Object.entries(check.properties)
-                .filter(([prop, propCheck]) => type_check_v2(val[prop], propCheck))
-                .length === Object.values(check.properties).length
-                ;
+function type_check(obj,conf){
+    var key;
+    for(key in Object.keys(conf)){
+        switch(key){
+            case 'type':
+                if(!type_check_v2(obj, conf[key])) return false;
+                break;
+            case 'value':
+                if(!type_check_v2(obj, conf[key])) return false;
+                break;
+            case "enum":
+                var val;
+                for(val in conf[key]){
+                    if(!type_check_v2(variable,{value: val})) return false
+                }
+                break;
+            case 'properties':
+                for(property in Object.keys(conf[key])){
+                    if(!obj[property]) return false;
+                    if(!type_check(variable[property],conf[key][property])) return false;
+                }
         }
+
+        return true;
     }
 }
